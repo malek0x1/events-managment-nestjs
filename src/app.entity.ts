@@ -11,6 +11,7 @@ import {
     OneToOne,
     PrimaryGeneratedColumn,
   } from 'typeorm';
+import { User } from './auth/entities/auth.entity.js';
   
   export enum EventStatus {
     PENDING = 'PENDING',
@@ -23,36 +24,7 @@ import {
     REJECTED = 'REJECTED',
   }
   
-  @Entity()
-  export class Role {
-    @PrimaryGeneratedColumn()
-    id: number;
-  
-    @Column({ unique: true })
-    name: string;
-  }
-  
-  @Entity()
-  export class User {
-    @PrimaryGeneratedColumn()
-    id: number;
-  
-    @Column()
-    name: string;
-  
-    @Column({ unique: true })
-    email: string;
-  
-    @Column()
-    password: string;
-  
-    @ManyToOne(() => Role)
-    role: Role;
-  
-    @CreateDateColumn()
-    createdAt: Date;
-  }
-  
+
   @Entity()
   export class Category {
     @PrimaryGeneratedColumn()
