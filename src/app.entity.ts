@@ -73,7 +73,7 @@ import { User } from './auth/entities/auth.entity.js';
     @JoinTable()
     tags: Tag[];
   
-    @OneToMany(() => Image, (image) => image.event)
+    @OneToMany(() => Image, (image) => image.event,{cascade:true}) // so we dont have to make seprate call to save images.
     images: Image[];
   
     @CreateDateColumn()
